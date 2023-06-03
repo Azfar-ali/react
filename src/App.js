@@ -1,37 +1,56 @@
 import './App.css';
 import Employee from './components/Employee';
+import React from 'react';
+import {useState} from 'react';
 // import Hamza from './Hamza';
 // import Uni from './University';
 // import Emp from './components/Emp';
 
 
 function App() {
+//  for (let i=0; i=5; i++){
+    let [salary, setSalary] = useState(0);
+ // }
+
+
+  let input = document.getElementById("myInput");
+  let [role, setRole] = useState("developer");
   const showEmployees = true;
+
   return (       
-    <>
-      return (
+    <>  
+        <input placeholder='salary kitni lo gae' type="text" id="myInput"
+        onChange={(e) => {
+            setSalary(e.target.value);}}/>
+
+        <button type="button" id="myInput" onClick={()=> {setSalary(0)}}> Click Me!</button> 
+
+
+
+        
         <div className='App'>
           {
           showEmployees ? 
           <>
-          <Employee/>          
-          <Employee/>
-          <Employee/>
-          <Employee/>
-          <Employee/>
+          <input type="text" onChange={ (e) => {
+            console.log (e.target.value);
+            setRole(e.target.value);
+          }}
+            
+          />
+          <Employee name="Ali" role="Intern" paid={salary} className="one"/>          
+          <Employee name="Raza" role="Junior" paid={salary} className="two"/>
+          <Employee name="Jamal" role="Senior" paid={salary}/>
+          <Employee name="Qazi" paid={salary}/>
+          <Employee name="Javed" role={role} paid={salary}/>
           </> 
           : 
           <p>you can't see the employees</p>
           }
         </div>
-      )
-    
-    
-    
-    
-    
     </>   
-
+  );
+}
 
 
        
@@ -43,29 +62,29 @@ function App() {
 
        
         
-        /* 
-            <>
-      <div className="App">        
-        <Hamza/>
-        <Emp/>
-        {/* <header className="App-header">
-          <p> Hellosafd!</p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <div>Ali Azfar
-          <Uni/>
-        </div>
-      </div>
-    </> */
+//         /* 
+//             <>
+//       <div className="App">        
+//         <Hamza/>
+//         <Emp/>
+//         {/* <header className="App-header">
+//           <p> Hellosafd!</p>
+//           <a
+//             className="App-link"
+//             href="https://reactjs.org"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//           >
+//             Learn React
+//           </a>
+//         </header>
+//         <div>Ali Azfar
+//           <Uni/>
+//         </div>
+//       </div>
+//     </> */
     
-  );
-}
+//   );
+// }
 
 export default App;
